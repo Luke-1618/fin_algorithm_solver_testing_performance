@@ -128,12 +128,18 @@ max_assets = st.sidebar.slider(
     10,
 )
 
-rebalance_frequency = st.sidebar.selectbox(
+rebalance_frequency_label = st.sidebar.selectbox(
     "Rebalance frequency",
-    ["M", "Q"],
+    ["Monthly", "Quarterly"],
     index=0,
 )
 
+rebalance_frequency_map = {
+    "Monthly": "ME",
+    "Quarterly": "QE",
+}
+
+rebalance_frequency = rebalance_frequency_map[rebalance_frequency_label]
 rebalance_threshold = st.sidebar.slider(
     "Rebalance threshold",
     0.00,
